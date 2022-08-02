@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "./components/calculator/header/header";
-import Buttons from "./components/calculator/buttons/buttons";
+import Header from "./components/header/header";
+import Buttons from "./components/buttons/buttons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./base.scss";
 
