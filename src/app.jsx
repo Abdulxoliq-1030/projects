@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Header from "./components/header/header";
 import Buttons from "./components/buttons/buttons";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./base.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
@@ -11,8 +11,9 @@ class App extends Component {
 
   handleButton = (btnValue) => {
     let { value } = this.state;
+
     switch (btnValue) {
-      case "C":
+      case "AC":
         this.setState({ value: "" });
         break;
       case "=":
@@ -24,26 +25,23 @@ class App extends Component {
           }
         }
         break;
-      case "←":
-        if (value) {
-          this.setState({
-            value: value.slice(0, value.length - 1),
-          });
-          if (value.length === 1) {
-            this.setState({ value: (value = "") });
-          }
-        }
-        break;
       default:
         this.setState({ value: (value += btnValue) });
         break;
     }
   };
 
+  handleSlice = () => {
+    const { value } = this.state;
+    this.setState({
+      value: value.slice(0, value.length - 1),
+    });
+  };
+
   render() {
     return (
       <>
-        <Header value={this.state.value} />
+        <Header onSlice={this.handleSlice} value={this.state.value} />
         <Buttons onButton={this.handleButton} />
       </>
     );

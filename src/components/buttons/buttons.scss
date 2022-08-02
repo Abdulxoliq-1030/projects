@@ -26,5 +26,10 @@
         transform: scale(0.9);
       }
     }
+
+    .operator:focus {
+      background-color: #fff !important;
+      color: #000 !important;
+    }
   }
 }

@@ -1,43 +1,35 @@
 import React, { Component } from "react";
 import "./buttons.scss";
 
+const buttons = [
+  ["AC", "±", "%", "/"],
+  ["7", "8", "9", "*"],
+  ["4", "5", "6", "-"],
+  ["1", "2", "3", "+"],
+  ["0", "00", ".", "="],
+];
+
 class Buttons extends Component {
   render() {
     const { onButton } = this.props;
     return (
       <div className="buttons">
-        <div className="btn-items">
-          <button className="bg-secondary" onClick={() => onButton("C")}>C</button>
-          <button className="bg-secondary" onClick={() => onButton("/")}>/</button>
-          <button className="bg-secondary" onClick={() => onButton("*")}>*</button>
-          <button className="bg-warning text-light" onClick={() => onButton("←")}>←</button>
-        </div>
-        <div className="btn-items">
-          <button onClick={() => onButton("7")}>7</button>
-          <button onClick={() => onButton("8")}>8</button>
-          <button onClick={() => onButton("9")}>9</button>
-          <button className="bg-warning text-light" onClick={() => onButton("-")}>-</button>
-        </div>
-        <div className="btn-items">
-          <button onClick={() => onButton("4")}>4</button>
-          <button onClick={() => onButton("5")}>5</button>
-          <button onClick={() => onButton("6")}>6</button>
-          <button className="bg-warning text-light" onClick={() => onButton("+")}>+</button>
-        </div>
-        <div className="btn-items">
-          <button onClick={() => onButton("1")}>1</button>
-          <button onClick={() => onButton("2")}>2</button>
-          <button onClick={() => onButton("3")}>3</button>
-          <button className="bg-warning text-light" onClick={() => onButton(".")}>.</button>
-        </div>
-        <div className="btn-items">
-          <button onClick={() => onButton("(")}>(</button>
-          <button onClick={() => onButton("0")}>0</button>
-          <button onClick={() => onButton(")")}>)</button>
-          <button className="bg-warning text-light" onClick={() => onButton("=")} id="equal">
-            =
-          </button>
-        </div>
+        {buttons.map((btnItems, idx) => (
+          <div key={idx} className="btn-items">
+            {btnItems.map((btn, idx) => (
+              <button
+                key={idx}
+                onClick={() => onButton(`${btn}`)}
+                children={btn}
+                className={`${idx === 3 && "operator"}`}
+                style={{
+                  background: `${idx === 3 ? "#fc9600" : "#2a2a2a"}`,
+                  color: "#fff  ",
+                }}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     );
   }

@@ -1,7 +1,11 @@
+* {
+  user-select: none;
+}
+
 body {
   height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #000;
+  background-color: #000 !important;
   color: #fff;
 }

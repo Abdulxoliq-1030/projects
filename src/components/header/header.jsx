@@ -3,10 +3,10 @@ import "./header.scss";
 
 class Header extends Component {
   render() {
-    const { value } = this.props;
+    const { value, onSlice } = this.props;
     return (
       <div className="header">
-        <span>{value}</span>
+        <span onClick={onSlice}>{value}</span>
       </div>
     );
   }
