@@ -1,10 +1,16 @@
 import { Component } from "react";
-import Tabs from "./components/tabs";
+import Header from "./components/header/header";
+import Content from "./components/content/content";
 import "./base.scss";
 
 class App extends Component {
   render() {
-    return <Tabs />;
+    return (
+      <>
+        <Header />
+        <Content />
+      </>
+    );
   }
 }
 
