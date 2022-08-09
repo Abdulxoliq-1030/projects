@@ -11,10 +11,3 @@ body {
   height: 100vh;
   place-items: center;
 }
-
-.wrapper {
-  width: calc(100vw - 400px);
-  height: calc(100vh - 10px);
-  overflow: scroll;
-  border: 1px solid #7777;
-}
