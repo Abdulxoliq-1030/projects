@@ -1,14 +1,10 @@
 import { Component } from "react";
+import Tabs from "./components/tabs";
 import "./base.scss";
 
 class App extends Component {
-
   render() {
-    return (
-      <div className="wrapper">
-       
-      </div>
-    );
+    return <Tabs />;
   }
 }
 
