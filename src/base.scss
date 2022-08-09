@@ -1,11 +1,16 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
 * {
-  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, "system-ui", "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-body {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  background-color: #000 !important;
-  color: #fff;
+.pagination li {
+  cursor: pointer;
+}
+
+th {
+  cursor: pointer;
 }
