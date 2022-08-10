@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body,
+.squares {
+  background: red;
+  animation: mymove 5s infinite;
+}
+
+.squares {
+  border: none;
+  font-size: 5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.board {
+  background: #00cec9;
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.X {
+  color: red;
+}
+.O {
+  color: green;
+}
+
+.info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.3rem 1.5rem;
+  background-color: #00cec9;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 1.3rem;
+}
+
+@keyframes mymove {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: blue;
+  }
+}
