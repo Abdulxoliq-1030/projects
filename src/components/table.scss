@@ -27,6 +27,20 @@ table {
     z-index: 100;
   }
 
+  th:nth-child(1) {
+    position: sticky;
+    left: 0;
+    background-color: #fafafa;
+    z-index: 10000;
+  }
+
+  th:nth-child(2) {
+    position: sticky;
+    z-index: 10000;
+    background-color: #fafafa;
+    left: 150px;
+  }
+
   td:nth-child(2) {
     position: sticky;
     z-index: 100;

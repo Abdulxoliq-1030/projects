@@ -11,7 +11,7 @@ function Table({ onThLength, onTableCount }) {
           {onThLength(10)}
         </tr>
       </thead>
-      <tbody>{onTableCount(30)}</tbody>
+      <tbody>{onTableCount(100)}</tbody>
     </table>
   );
 }

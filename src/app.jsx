@@ -10,7 +10,6 @@ class App extends Component {
     }
     return thead;
   };
-
   handleTableCount = (count) => {
     const table = [];
     for (let i = 0; i < count; i++) {
