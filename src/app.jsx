@@ -4,7 +4,7 @@ import Logo from "./components/menu-section/logo";
 import Navbar from "./components/navbar-section/navbar-section";
 import Menus from "./components/menu-section/menus/menus";
 import Banner from "./components/banner/banner";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -14,27 +14,32 @@ class App extends Component {
   };
 
   onCollapse = () => {
-    localStorage.setItem("collapsed", !this.state.collapsed);
     this.setState(({ collapsed }) => ({ collapsed: !collapsed }));
   };
 
   onSelect = (title, newActiveIdx) => {
-    localStorage.setItem("activeIdx", newActiveIdx);
     this.setState({ activeIdx: newActiveIdx, title });
   };
 
   render() {
-    const { collapsed, activeIdx, title, routes } = this.state;
+    const { collapsed, activeIdx, title } = this.state;
     const { onCollapse, onSelect } = this;
     return (
       <div className="app">
         <div className="dashboard">
           <Logo collapsed={collapsed} />
-          <Menus
-            activeIdx={activeIdx}
-            collapsed={collapsed}
-            onSelect={onSelect}
-          />
+          <Switch>
+            <Route
+              render={(props) => (
+                <Menus
+                  props={props}
+                  activeIdx={activeIdx}
+                  collapsed={collapsed}
+                  onSelect={onSelect}
+                />
+              )}
+            />
+          </Switch>
           <User collapsed={collapsed} />
         </div>
         <div className="banner">

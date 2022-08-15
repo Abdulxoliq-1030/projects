@@ -1,7 +1,7 @@
 .menu {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1.4rem;
   height: 40px;
   margin-top: 8px;
   border-radius: 8px;
@@ -14,6 +14,10 @@
     background-color: cornflowerblue;
     color: #fff;
 
+    a {
+      color: #fff;
+    }
+
     svg {
       fill: #fff;
     }
@@ -23,13 +27,22 @@
     background: dodgerblue;
     color: white;
 
+    a {
+      color: #fff;
+    }
+
     svg {
       fill: #fff;
     }
   }
-  span {
+  a {
     font-weight: 600;
     font-size: 17px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #526581;
   }
 
   svg {
