@@ -8,13 +8,37 @@
   padding: 10px 0 10px 10px;
   color: #526581;
   cursor: pointer;
+  transition: all 0.1s linear;
+
+  &:hover {
+    background-color: cornflowerblue;
+    color: #fff;
+
+    svg {
+      fill: #fff;
+    }
+  }
 
   &.active {
     background: dodgerblue;
     color: white;
+
+    svg {
+      fill: #fff;
+    }
   }
   span {
     font-weight: 600;
     font-size: 17px;
+  }
+
+  svg {
+    fill: #526581;
+  }
+
+  select {
+    border: none;
+    background-color: transparent;
+    outline: none;
   }
 }
