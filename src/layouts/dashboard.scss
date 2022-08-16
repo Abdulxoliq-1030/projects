@@ -1,0 +1,59 @@
+@import "../assets/base.scss";
+.dashboard {
+  display: flex;
+  flex-direction: row;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      color: #ffff;
+    }
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .dashboard {
+    background-color: #0b1523;
+  }
+  .sidebar {
+    background-color: #0f1e33;
+    .logo {
+      h1 {
+        color: #fff;
+      }
+    }
+    .search {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .link {
+      &:hover {
+        background-color: #fff1;
+      }
+    }
+    .linkActive {
+      &:hover {
+        background-color: $bule;
+      }
+    }
+    .accaunt {
+      background-color: rgba(255, 255, 255, 0.05);
+      h2 {
+        color: #fff;
+      }
+    }
+  }
+  .toggleZone {
+    button {
+      background-color: #fff1;
+      color: #000;
+      &:hover {
+        background-color: #fff2;
+      }
+    }
+    h1 {
+      color: #ffff;
+    }
+  }
+}

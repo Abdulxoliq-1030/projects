@@ -1,0 +1,140 @@
+@import "../../../assets/base.scss";
+.sidebar {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  flex-direction: column;
+  width: max-content;
+
+  &_assets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  background-color: $input-background;
+  padding: 20px;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .accountImg {
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .accountInfo {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-size: 14px;
+      line-height: 12px;
+      color: $main-color;
+    }
+    p {
+      font-size: 12px;
+      //   line-height: 5px;
+      color: $text;
+    }
+  }
+  .logout {
+    svg {
+      &:hover {
+        fill: $black;
+      }
+    }
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: $input-background;
+  width: max-content;
+  border-radius: 8px;
+  width: max-content;
+  svg {
+    fill: $text;
+    margin: 16px 0;
+  }
+
+  input {
+    width: 30%;
+    border: none;
+    border-radius: 15px;
+    padding: 0 1rem;
+    color: $text;
+    background-color: transparent;
+    outline: none;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 5px 16px;
+  width: max-content;
+
+  h1 {
+    font-size: 18px;
+    line-height: 24px;
+    color: $text;
+    margin: 0;
+  }
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 16px;
+  background: transparent;
+  color: $text;
+  border-radius: 8px;
+  // ad
+  user-select: none;
+  cursor: pointer;
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  &:hover {
+    background-color: $input-background;
+  }
+  svg {
+    height: 17px;
+  }
+  p {
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.active-item {
+  background-color: $bule;
+  color: $white;
+  svg {
+    fill: $white;
+  }
+  &:hover {
+    background-color: $bule;
+  }
+}

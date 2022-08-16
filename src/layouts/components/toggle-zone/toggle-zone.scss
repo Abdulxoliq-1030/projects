@@ -1,0 +1,30 @@
+@import "../../../assets/base.scss";
+
+.toggleZone {
+  padding: 1.3rem 1rem;
+  display: flex;
+}
+.btns {
+  padding: 0.2rem 1rem;
+  width: max-content;
+  border-radius: 8px;
+  background-color: $white;
+  color: $text;
+  border: none;
+  outline: none;
+  &:hover {
+    background-color: $input-background;
+  }
+  &:active {
+    background-color: $bule;
+    color: $white;
+    svg {
+      fill: $white;
+    }
+  }
+}
+
+.btns-title {
+  color: $text;
+  font-size: 3rem;
+}
