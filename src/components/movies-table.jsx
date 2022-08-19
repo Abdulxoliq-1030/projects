@@ -1,15 +1,15 @@
+import PropTypes from "prop-types";
 import Like from "./like";
 import Pagination from "./pagination";
 
-const Movies = ({
+const MoviesTable = ({
   movies = [],
   onLike,
   pageSize,
   onPageChange,
   currentPage,
-  total,
   onDeleteMovie,
-  onSorted,
+  total,
 }) => {
   return (
     <>
@@ -17,10 +17,10 @@ const Movies = ({
         <thead>
           <tr>
             <th>#</th>
-            <th onClick={() => onSorted("title")} >Title</th>
-            <th onClick={() => onSorted("genre.name")} >Genre</th>
-            <th onClick={() => onSorted("numberInStock")} >Stock</th>
-            <th onClick={() => onSorted("dailyRentalRate")} >Rate</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Stock</th>
+            <th>Rate</th>
             <th></th>
           </tr>
         </thead>
@@ -34,7 +34,7 @@ const Movies = ({
               <td>{movie.dailyRentalRate}</td>
               <td>
                 <Like
-                  isLiked={movie.isLiked}
+                  isLiked={Boolean(movie.isLiked)}
                   onLike={() => onLike(movie._id)}
                 />
                 <button className="btn btn-info btn-sm ms-2">Edit</button>
@@ -59,4 +59,13 @@ const Movies = ({
   );
 };
 
-export default Movies;
+MoviesTable.propTypes = {
+  movies: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  onDeleteMovie: PropTypes.func.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+  onLike: PropTypes.func.isRequired,
+};
+export default MoviesTable;

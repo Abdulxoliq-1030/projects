@@ -1,23 +1,22 @@
-# ---------- 09.08.22 ----------(134)
+# ---------- 18.09.22 ----------(141)
 
 ## 1️⃣ Checking homeworks
 
-## 2️⃣ Create simple projects
+## 2️⃣ Form
 
-        ✅ create fake getMovies without backend 👍🏻
-        ✅ create fake getGenres without backend 👍🏻
-
-## 3️⃣ Implement sorting
-
-         ✅ using _.orderBy
-
-## 4️⃣ Delete method with backend
-
-         ✅ create handleDelete method without backend
-         ✅ create loader component
-         ✅ using react-toastify
-
-## 5️⃣ Extracting table
-
-         ✅ create tableHeader component
-         ✅ create tableBody component
+         ✅ Building bootstrap form (Login) 👍🏻
+         ✅ refs & autofocus 👍🏻
+         ✅ controlled elements 👍🏻
+         ✅ handling multiple inputs 👍🏻
+         ✅ Common errors [undefined, null] 👍🏻
+         ✅ Extracting reuseable input component 👍🏻
+         ✅ Validation 👍🏻
+         ✅ Create simple validation 👍🏻
+         ✅ Displaying validation errors 👍🏻
+         ✅ Validation onChange 👍🏻
+         ✅ Yup
+         ✅ Validation form using yup
+         ✅ Validation one field using yup
+         ✅ Disabled submit button
+         ✅ Code review
+         🍫 Extracting reuseable form component
