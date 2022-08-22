@@ -3,37 +3,54 @@ import { Switch, Route } from "react-router-dom";
 import { Login, Movies, Register } from "./pages";
 import { NavBar } from "./components";
 import AddMovie from "./pages/add-movie";
+import { fakeGetMovies } from "./services";
 
 class App extends Component {
   state = {
-    newMovies: JSON.parse(localStorage.getItem("newMovies")),
+    movies: fakeGetMovies(),
+    movie: {},
   };
 
-  addMovie = (arr) => {
-    const newMovies = this.state.newMovies;
-    newMovies.push(arr);
-    localStorage.setItem("newMovies", JSON.stringify(newMovies));
+  handleAddMovie = (movie) => {
+    const movies = [...this.state.movies, movie];
+    this.setState({ movies });
+  };
+
+  handleEditMovie = (movieID) => {
+    const movie = this.state.movies.filter((movie) => movie._id === movieID);
+    this.setState({ movie });
   };
 
   render() {
-    if (!localStorage.hasOwnProperty("newMovies")) {
-      localStorage.setItem("newMovies", JSON.stringify([]));
-    }
-    console.log(localStorage.hasOwnProperty("newMovies"));
-
     return (
       <>
         <NavBar />
         <div className="container pt-4 wrapper">
           <Switch>
+            <Route exact path="/" component={() => <h1>Zetflix</h1>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route
               exact
               path="/add-movie"
-              component={() => <AddMovie addMovie={this.addMovie} />}
+              component={(props) => (
+                <AddMovie
+                  editMovie={this.state.movie}
+                  push={props.history.push}
+                  onAddMovie={this.handleAddMovie}
+                />
+              )}
             />
-            <Route path="/" component={Movies} />
+            <Route
+              path="/movies"
+              component={(props) => (
+                <Movies
+                  {...props}
+                  movies={this.state.movies}
+                  onEditMovie={this.handleEditMovie}
+                />
+              )}
+            />
           </Switch>
         </div>
       </>

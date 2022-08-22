@@ -7,7 +7,6 @@ class NavBar extends Component {
       <nav className="navbar navbar-dark bg-dark ">
         <div className="container justify-content-between">
           <Link to="/">
-            {" "}
             <span
               style={{ fontSize: 50, cursor: "pointer" }}
               className="navbar-brand m-0 h1"
@@ -16,7 +15,11 @@ class NavBar extends Component {
             </span>
           </Link>
           <ul className="nav mb-2 mb-md-0">
-           
+            <li className="nav-item">
+              <Link className="nav-link" to="/movies">
+                Movies
+              </Link>
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">
                 Login
