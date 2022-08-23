@@ -17,3 +17,13 @@ body {
 .wrapper {
   height: 100vh;
 }
+
+.nav-link {
+  color: #fff;
+  &:hover {
+    color: #efed40;
+  }
+  &.nav-active {
+    color: #efed40;
+  }
+}

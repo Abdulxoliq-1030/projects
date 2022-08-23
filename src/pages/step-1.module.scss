@@ -1,0 +1,25 @@
+form {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.name-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  button {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #51f88f;
+    border: none;
+    color: #000;
+    padding: 1rem;
+    border-radius: 10px !important;
+  }
+}

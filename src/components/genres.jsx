@@ -1,23 +1,15 @@
-import { Link } from "react-router-dom";
 
 const Genres = ({ genres = [], genreID, onSelect }) => {
-  const { pathname } = window.location;
   return (
     <div className='col-2'>
-      <ul className='list-group' style={{ listStyle: "none" }}>
+      <ul className='list-group'>
         {genres.map((genre) => (
-          <li key={genre._id}>
-            <Link
-              to={`/movies/${genre.name}`}
-              className={`list-group-item ${
-                pathname === `/movies/${genre.name}` && "active"
-              } ${
-                pathname === "/movies" && genre.name === "All" && "active"
-              }  `}
-              style={{ cursor: "pointer" }}
-              onClick={() => onSelect(genre._id)}>
-              {genre.name}
-            </Link>
+          <li
+            key={genre._id}
+            className={`list-group-item ${genre._id === genreID && "active"}`}
+            style={{ cursor: "pointer" }}
+            onClick={() => onSelect(genre._id)}>
+            {genre.name}
           </li>
         ))}
       </ul>
@@ -26,3 +18,4 @@ const Genres = ({ genres = [], genreID, onSelect }) => {
 };
 
 export default Genres;
+

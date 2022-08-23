@@ -1,24 +1,29 @@
 import { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Login, Movies, Register } from "./pages";
 import { NavBar } from "./components";
-import AddMovie from "./pages/add-movie";
-import { fakeGetMovies } from "./services";
+import { Step1, Step2, Step3 } from "./pages/index";
 
 class App extends Component {
   state = {
-    movies: fakeGetMovies(),
-    movie: {},
-  };
-
-  handleAddMovie = (movie) => {
-    const movies = [...this.state.movies, movie];
-    this.setState({ movies });
-  };
-
-  handleEditMovie = (movieID) => {
-    const movie = this.state.movies.filter((movie) => movie._id === movieID);
-    this.setState({ movie });
+    step1: {
+      name: "John",
+      surname: "Doe",
+      email: "example@gmail.com",
+      country: "USA",
+      role: "JAVA",
+    },
+    step2: {
+      brandname: "Piedpiper",
+      website: "https:/ /www.piedpiper.com",
+      category: "Dev Ops",
+      hexcolor: "#057066",
+    },
+    step3: {
+      beneficiary: "Grenville Angel",
+      iban: "FR8417569000407717236765S51",
+      swift: "12345678910",
+      bankCurrency: "USD ($)",
+    }
   };
 
   render() {
@@ -27,30 +32,9 @@ class App extends Component {
         <NavBar />
         <div className="container pt-4 wrapper">
           <Switch>
-            <Route exact path="/" component={() => <h1>Zetflix</h1>} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route
-              exact
-              path="/add-movie"
-              component={(props) => (
-                <AddMovie
-                  editMovie={this.state.movie}
-                  push={props.history.push}
-                  onAddMovie={this.handleAddMovie}
-                />
-              )}
-            />
-            <Route
-              path="/movies"
-              component={(props) => (
-                <Movies
-                  {...props}
-                  movies={this.state.movies}
-                  onEditMovie={this.handleEditMovie}
-                />
-              )}
-            />
+            <Route path="/step-1" component={(props) => <Step1 props={props} data1={this.state.step1} />} />
+            <Route path="/step-2" component={(props) => <Step2 props={props} data2={this.state.step2} />} />
+            <Route path="/step-3" component={(props) => <Step3 props={props} data3={this.state.step3} />} />
           </Switch>
         </div>
       </>

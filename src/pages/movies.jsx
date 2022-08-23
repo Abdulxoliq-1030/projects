@@ -1,11 +1,10 @@
 import { Component } from "react";
 import { toast } from "react-toastify";
 import _ from "lodash";
-import { fakeGetGenres } from "../services";
+import { fakeGetGenres, fakeGetMovies } from "../services";
 import { paginate } from "../helpers/paginate";
 import { MoviesTable, Genres, Loader, Total } from "../components";
-import { Link } from "react-router-dom";
-import AddMovie from "./add-movie";
+
 /**
  * @imports
  * ✅ packages
@@ -51,13 +50,16 @@ class Movies extends Component {
   };
 
   componentDidMount() {
-    let movies = this.props.movies;
+    const movies = fakeGetMovies();
     const genres = fakeGetGenres();
+
     genres.unshift({ name: "All", _id: "all" });
+
     setTimeout(() => this.setState({ loading: false, movies, genres }), 1000);
   }
 
   render() {
+    console.log("Movies Render");
     if (this.state.loading) return <Loader />;
 
     const { movies, genres, genreID, pageSize, currentPage, columnSort } =
@@ -77,19 +79,15 @@ class Movies extends Component {
 
     const total = filteredMovies.length;
 
-    const { onEditMovie } = this.props;
-
     return (
-      <div className="row d-flex">
+      <div className='row d-flex'>
         <Genres
           genres={genres}
           genreID={genreID}
           onSelect={this.handleSelectGenre}
         />
-        <div className="col">
-          <Link to="/add-movie">
-            <button className="btn btn-primary my-2 d-block">Add Movie</button>
-          </Link>
+        <div className='col'>
+          <button className='btn btn-primary my-2 d-block'>Add Movie</button>
           <Total total={total} />
           <MoviesTable
             currentPage={currentPage}
@@ -97,7 +95,6 @@ class Movies extends Component {
             total={total}
             movies={paginatedMovies}
             onDeleteMovie={this.handleDeleteMovie}
-            onEditMovie={onEditMovie}
             onPageChange={this.handlePageChange}
             onLike={this.handleLike}
           />

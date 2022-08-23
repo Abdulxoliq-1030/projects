@@ -1,34 +1,38 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark ">
+      <nav className="navbar navbar-dark bg-success ">
         <div className="container justify-content-between">
-          <Link to="/">
-            <span
-              style={{ fontSize: 50, cursor: "pointer" }}
-              className="navbar-brand m-0 h1"
-            >
-              Zetflix
-            </span>
-          </Link>
           <ul className="nav mb-2 mb-md-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/movies">
-                Movies
-              </Link>
+              <NavLink
+                activeClassName="nav-active"
+                className="nav-link"
+                to="/step-1"
+              >
+                Step-1
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
+              <NavLink
+                activeClassName="nav-active"
+                className="nav-link"
+                to="/step-2"
+              >
+                Step-2
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/register">
-                Register
-              </Link>
+              <NavLink
+                activeClassName="nav-active"
+                className="nav-link"
+                to="/step-3"
+              >
+                Step-3
+              </NavLink>
             </li>
           </ul>
         </div>
